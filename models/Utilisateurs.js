@@ -39,7 +39,9 @@ const Utilisateur = database.define('Utilisateur', {
             model: Roles,
             key: 'id'
         }
-    }
-})
+    },
+},
+    {timestamps:false}
+)
 
 export default Utilisateur

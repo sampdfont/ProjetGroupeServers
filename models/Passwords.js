@@ -14,8 +14,9 @@ const Passwords = database.define('Passwords', {
             key: 'id'
         }
     }
-
-})
+},
+{timestamps:false}
+)
 
 
 export default Passwords

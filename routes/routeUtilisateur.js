@@ -2,6 +2,7 @@
 import { Router } from "express";
 import { body } from "express-validator"
 import { listUtilisateur, ajouterUtilisateur, modifierUtilisateur, supprimerUtilisateur} from "../controllers/utilisateur.js";
+import { isAdmin, verifierToken } from "../auth/authentification.js";
 
 const routesUtilisateur = Router()
 
@@ -15,13 +16,13 @@ routesUtilisateur.get('/', listUtilisateur)
     body('email').isEmail(),
     body('RoleId').notEmpty(),
     ajouterUtilisateur)
-    .put('/:id',
+    .put('/:id', verifierToken,
     body('naissance').isBefore("2023-11-09"),
     body('photo').isURL(),
     body('telephone').isMobilePhone(),
     body('email').isEmail(),
     body('RoleId').notEmpty(),
     modifierUtilisateur)
-    .delete('/:id', supprimerUtilisateur)
+    .delete('/:id', verifierToken, isAdmin, supprimerUtilisateur)
 
 export default routesUtilisateur

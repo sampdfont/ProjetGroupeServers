@@ -1,5 +1,7 @@
 import { validationResult } from "express-validator";
 import { Utilisateurs } from "../models/index.js";
+//importer le module de hashage
+import bcrypt from "bcryptjs";
 
 export const listUtilisateur = async (req, res) => {
     try {
@@ -17,8 +19,12 @@ export const ajouterUtilisateur = async (req, res) => {
     {
         return res.status(400).json ({errors: errors.array() })
     }
+
     const { nom, prenom, naissance, photo, telephone, email, motDePasse, RoleId } = req.body
-    const utilisateur = { nom, prenom, naissance, photo, telephone, email, motDePasse, RoleId }
+    
+    const mdpCrypte = bcrypt.hashSync(motDePasse,10)
+
+    const utilisateur = { nom, prenom, naissance, photo, telephone, email, motDePasse:mdpCrypte, RoleId }
     try {
         await Utilisateurs.create(utilisateur)
         res.status(201).json({ message: "L'utilisateur a ete ajouter avec succes." })

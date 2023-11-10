@@ -14,6 +14,7 @@ import routesPassword from './routes/routePassword.js'
 import routesModalitePaiement from './routes/routeModalitePaiement.js'
 import routesHistory from './routes/routeHistory.js'
 import routesBookmark from './routes/routeBookmark.js'
+import Logging from './routes/routeAuth.js'
 
 database.sync()
 
@@ -34,7 +35,7 @@ app.use('/histoire', routesHistory)
 app.use('/bookmark', routesBookmark)
 
 //Login
-app.use('/login', routerAuth)
+app.use('/login', Logging)
 
 //Indiquer le port d’écoute du serveur
 app.listen(PORT, () => console.log('Server running on port 5000'))
