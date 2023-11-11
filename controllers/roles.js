@@ -25,6 +25,6 @@ export const ajouterRoles = async (req, res) => {
         await Roles.create(role)
         res.status(201).json({ message: "Le role a ete ajouter avec succes." })
     } catch (error) {
-        res.status(400).json({ error: error.message })
+        res.status(400).json({ message: "Probleme lors de la creation du role." })
     }
 }

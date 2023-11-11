@@ -7,7 +7,7 @@ import { verifierToken } from "../auth/authentification.js";
 const routesHistory = Router()
 
 //Les routes deviennent
-routesHistory.post('/', 
+routesHistory.post('/',
     body('url').isURL(),
     body('UtilisateurId').notEmpty(),
     ajouterHistory)

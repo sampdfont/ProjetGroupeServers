@@ -13,7 +13,7 @@ export const ajouterBookmark = async (req, res) => {
         await Bookmarks.create(Bookmark)
         res.status(201).json({ message: "Le bookmark a bien ete ajoute." })
     } catch (error) {
-        res.status(400).json({ error: error.message })
+        res.status(400).json({ message: "Probleme lors de l'ajout du bookmark" })
     }
 }
 

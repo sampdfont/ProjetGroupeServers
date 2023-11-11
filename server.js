@@ -20,13 +20,13 @@ database.sync()
 
 const { PORT } = dotenv.config().parsed
 const app = express()
-
+//Route des modules
 app.use(helmet())
 app.use(compression())
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-
+//Routes pour le projet
 app.use('/utilisateurs', routesUtilisateur)
 app.use('/roles', routesRoles)
 app.use('/password', routesPassword)

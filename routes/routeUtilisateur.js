@@ -1,4 +1,4 @@
-//fonction permettant de creer des routes
+//fonction permettant de creer des routes. On les importes dans le server.js pour ne pas avoir de la repetition la.
 import { Router } from "express";
 import { body } from "express-validator"
 import { listUtilisateur, ajouterUtilisateur, modifierUtilisateur, supprimerUtilisateur} from "../controllers/utilisateur.js";
@@ -8,7 +8,6 @@ const routesUtilisateur = Router()
 
 //Les routes deviennent
 routesUtilisateur.get('/', listUtilisateur)
-    //.get('/:id', etudiantParId)
     .post('/',
     body('naissance').isBefore("2023-11-09"),
     body('photo').isURL(),

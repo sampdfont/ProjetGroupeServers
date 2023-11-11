@@ -1,0 +1,611 @@
+{
+	"info": {
+		"_postman_id": "978ad21c-56c0-49ed-ba25-08154ef1b257",
+		"name": "Examen 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29595347"
+	},
+	"item": [
+		{
+			"name": "ListCompleteUtilisateur",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/utilisateurs",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"utilisateurs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListCompleteRoles",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/roles",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListCompletePassword",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/password",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListCompleteModalite",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/modalite",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"modalite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajouter utilisateur",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nom\": \"Nodir\",\r\n    \"prenom\": \"Sano\",\r\n    \"naissance\": \"2002-01-21\",\r\n    \"photo\": \"https://th.bing.com/th/id/OIP.zdeypfHL1xmgKnXH0Cm-tAHaIs?pid=ImgDet&rs=1\",\r\n    \"telephone\": \"613-298-1821\",\r\n    \"email\": \"personne@gmail.com\",\r\n    \"motDePasse\": \"bjsdJHKbFSa\",\r\n    \"RoleId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/utilisateurs",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"utilisateurs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajouter roles",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Admin\",\r\n    \"securityLevel\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/roles",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajouter password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"akoweoiwpjrieorl\",\r\n    \"UtilisateurId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/password",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajouter modalite",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numeroCarte\": 2388302936467892,\r\n    \"nomSurCarte\": \"Sano Nodir\",\r\n    \"dateExpiration\": \"2025-06-21\",\r\n    \"UtilisateurId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/modalite",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"modalite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajouter page histoire",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"https://bing.com\",\r\n    \"nmbVisite\": 2,\r\n    \"name\": \"Bing\",\r\n    \"UtilisateurId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/histoire",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"histoire"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajouter page bookmark",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"https://bing.com\",\r\n    \"name\": \"Bing\",\r\n    \"createdAt\": \"2023-11-10\",\r\n    \"UtilisateurId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/bookmark",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"bookmark"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modifier Utilisateur",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nom\": \"sdgfsd\",\r\n    \"prenom\": \"jkfhddjksd\",\r\n    \"naissance\": \"2009-02-15\",\r\n    \"photo\": \"https://th.bing.com/th/id/OIP.zdeypfHL1xmgKnXH0Cm-tAHaIs?pid=ImgDet&rs=1\",\r\n    \"telephone\": \"613-284-7485\",\r\n    \"email\": \"personnel@gmail.com\",\r\n    \"motDePasse\": \"bjsdJHKbFSa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/utilisateurs/:id",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"utilisateurs",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modifier Password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"oiweuraweio\",\r\n    \"UtilisateurId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/password/:id",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"password",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modifier Modalite",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numeroCarte\": 9018122936449192,\r\n    \"nomSurCarte\": \"JKls kjsd\",\r\n    \"dateExpiration\": \"2025-06-21\",\r\n    \"UtilisateurId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/modalite/:id",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"modalite",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modifier histoire",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"https://google.ca\",\r\n    \"nmbVisite\": 3829142,\r\n    \"name\": \"Google\",\r\n    \"UtilisateurId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/histoire/:id",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"histoire",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Utilisateur",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{localhost}}/utilisateurs/:id",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"utilisateurs",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Bookmark",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/bookmark/:id",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"bookmark",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Histoire",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/histoire/:id",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"histoire",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"personne@gmail.com\",\r\n    \"motDePasse\": \"bjsdJHKbFSa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/login",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk5NjU5ODY2fQ.JB6lvLd_wUNFwYDxC73StE06nMxhZpiOTLnE6alZHvQ",
+			"type": "string"
+		},
+		{
+			"key": "localhost",
+			"value": "localhost:5000",
+			"type": "string"
+		}
+	]
+}

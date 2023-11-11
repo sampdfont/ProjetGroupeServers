@@ -12,7 +12,7 @@ export const ajouterHistory = async (req, res) => {
         await History.create(ModeliteDeHistory)
         res.status(201).json({ message: "L'historique a bien ete ajoute." })
     } catch (error) {
-        res.status(400).json({ error: error.message })
+        res.status(400).json({ message: "Probleme lors de l'ajout de l'historique" })
     }
 }
 
@@ -24,6 +24,9 @@ export const updateHistory = async (req, res) => {
     const { id } = req.params
     const nouveauHistory = req.body
 
+    if (!parseInt(id)) {
+        return res.status(200).json({ message: "Entrez un vrai entier comme id." })
+    }
     try {
         await History.update(nouveauHistory, { where: { id } })
         res.status(200).json({message: "L'historique a ete mise a jour avec succes" })

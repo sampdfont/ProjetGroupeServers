@@ -46,7 +46,7 @@ export const modifierUtilisateur = async (req, res) => {
         res.status(200).json({ message: "L'utilisateur a ete mis a jour avec succes" })
 
     } catch (error) {
-        res.status(400).json({ error: error.message })
+        res.status(400).json({ message: "Probleme lors de la modification de l'utilisateur." })
     }
 
 }
